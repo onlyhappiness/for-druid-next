@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import useLoginMutation from "@/hooks/auth/mutations/useLoginMutation";
 
 import { useState } from "react";
 
@@ -20,6 +21,8 @@ const SignUpPage = ({ className, ...props }: UserAuthFormProps) => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
 
+  const { mutate: loginMutate } = useLoginMutation();
+
   const onSubmit = async () => {
     const body = {
       phone,
@@ -27,6 +30,8 @@ const SignUpPage = ({ className, ...props }: UserAuthFormProps) => {
     };
 
     console.log("body:: ", body);
+
+    loginMutate(body);
   };
 
   return (

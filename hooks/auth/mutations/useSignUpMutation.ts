@@ -1,15 +1,7 @@
-// import { signUp } from "@/api/auth";
-import api from "@/api";
-import { ISignup } from "@/interfaces/auth";
+import { signUp } from "@/api/auth";
 import { useMutation } from "@tanstack/react-query";
 
-export const signUp = async (req: ISignup) => {
-  const res = await api.post(`/auth/register`, req);
-
-  return res.data;
-};
-
-const useSignUp = () => {
+const useSignUpMutation = () => {
   const mutation = useMutation({
     mutationFn: signUp,
     onSuccess: (res) => {
@@ -23,4 +15,4 @@ const useSignUp = () => {
   return mutation;
 };
 
-export default useSignUp;
+export default useSignUpMutation;

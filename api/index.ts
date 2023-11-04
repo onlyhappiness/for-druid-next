@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getApiHost = () => {
-  const api = "localhost:4000";
+  const api = "http://localhost:4000";
 
   return api;
 };
