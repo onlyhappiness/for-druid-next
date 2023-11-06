@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Providers from "./providers.client";
 import { cache } from "react";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import Hydrate from "./Hydrate.client";
-import Providers from "./providers.client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +15,12 @@ export const metadata: Metadata = {
 
 const getQueryClient = cache(() => new QueryClient());
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const queryClient = getQueryClient();
-
   const dehydratedState = dehydrate(queryClient);
   queryClient.clear();
 

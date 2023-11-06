@@ -5,10 +5,12 @@ const useLoginMutation = () => {
   const mutation = useMutation({
     mutationFn: login,
     onSuccess: (res) => {
-      console.log("로그인: ", res);
+      sessionStorage.setItem("token", res.data.access_token);
     },
     onError: (err) => {
       console.log("로그인 err: ", err);
+
+      //   return <LoginErrorModal />;
     },
   });
 

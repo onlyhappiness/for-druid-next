@@ -1,9 +1,9 @@
-import { signUp } from "@/api/auth";
+import { signup } from "@/api/auth";
 import { useMutation } from "@tanstack/react-query";
 
 const useSignUpMutation = () => {
   const mutation = useMutation({
-    mutationFn: signUp,
+    mutationFn: signup,
     onSuccess: (res) => {
       console.log("회원가입: ", res);
     },
