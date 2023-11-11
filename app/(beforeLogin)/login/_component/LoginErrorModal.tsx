@@ -13,10 +13,17 @@ import {
 } from "@/components/ui/alert-dialog";
 import React from "react";
 
-export default function LoginErrorModal() {
+interface ILoginErrorModal {
+  modalOpen: boolean;
+  setModalOpen: any;
+}
+
+export default function LoginErrorModal({
+  modalOpen,
+  setModalOpen,
+}: ILoginErrorModal) {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger>Open</AlertDialogTrigger>
+    <AlertDialog open={modalOpen}>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -26,7 +33,13 @@ export default function LoginErrorModal() {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel
+            onClick={() => {
+              setModalOpen(false);
+            }}
+          >
+            Cancel
+          </AlertDialogCancel>
           <AlertDialogAction>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

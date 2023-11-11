@@ -14,12 +14,17 @@ import { Label } from "@/components/ui/label";
 import useLoginMutation from "@/hooks/auth/mutations/useLoginMutation";
 
 import { useState } from "react";
+import LoginErrorModal from "./_component/LoginErrorModal";
+import api from "@/api";
+import useMyInfoQuery from "@/hooks/auth/queries/useMyInfo";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const SignUpPage = ({ className, ...props }: UserAuthFormProps) => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   const { mutate: loginMutate } = useLoginMutation();
 
@@ -32,6 +37,7 @@ const SignUpPage = ({ className, ...props }: UserAuthFormProps) => {
     console.log("body:: ", body);
 
     loginMutate(body);
+    // setModalOpen(true);
   };
 
   return (
@@ -93,6 +99,8 @@ const SignUpPage = ({ className, ...props }: UserAuthFormProps) => {
           </Button>
         </CardFooter>
       </Card>
+
+      <LoginErrorModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </>
   );
 };

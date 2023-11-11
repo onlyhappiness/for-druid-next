@@ -11,4 +11,16 @@ export const api = axios.create({
   withCredentials: true,
 });
 
+api.interceptors.request.use((request: any) => {
+  const token = sessionStorage.getItem("token");
+
+  if (!request.headers.Authorization) {
+    request.headers = {
+      Authorization: `Bearer ${token}`,
+    };
+  }
+
+  return request;
+});
+
 export default api;

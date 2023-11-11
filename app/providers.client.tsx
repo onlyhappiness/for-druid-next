@@ -1,6 +1,7 @@
 "use client";
 import React, { FC } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { SessionProvider } from "next-auth/react";
 
 interface Props {
   children: React.ReactNode;
@@ -9,7 +10,7 @@ interface Props {
 const Providers: FC<Props> = ({ children }) => {
   const queryClient = new QueryClient({
     defaultOptions: {
-      queries: { refetchOnWindowFocus: false },
+      queries: { retry: 2, refetchOnWindowFocus: false },
     },
   });
 

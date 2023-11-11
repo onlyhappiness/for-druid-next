@@ -15,13 +15,14 @@ export const metadata: Metadata = {
 
 const getQueryClient = cache(() => new QueryClient());
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const queryClient = getQueryClient();
   const dehydratedState = dehydrate(queryClient);
+
   queryClient.clear();
 
   return (
