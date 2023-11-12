@@ -15,8 +15,6 @@ import useLoginMutation from "@/hooks/auth/mutations/useLoginMutation";
 
 import { useState } from "react";
 import LoginErrorModal from "./_component/LoginErrorModal";
-import api from "@/api";
-import useMyInfoQuery from "@/hooks/auth/queries/useMyInfo";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
