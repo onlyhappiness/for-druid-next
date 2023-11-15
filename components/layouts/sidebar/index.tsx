@@ -27,19 +27,19 @@ const sidebarItems = [
   },
 ];
 
-function Sidebar({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
+export default ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
   const pathname = usePathname();
 
   const router = useRouter();
 
   return (
-    <aside className={cn("top-0 h-screen p-4")}>
-      <div className="flex items-center mb-4 space-x-1">
+    <aside className={cn("top-0 h-screen p-2")} {...props}>
+      <div className="flex items-center mb-4 space-x-1 p-2">
         <h1 className="text-lg font-medium">Logo</h1>
       </div>
 
       <ScrollArea className="h-screen">
-        <div className="space-y-2 ">
+        <div className="space-y-2">
           {sidebarItems.map((item, index) => {
             return (
               <Button
@@ -58,6 +58,4 @@ function Sidebar({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
       </ScrollArea>
     </aside>
   );
-}
-
-export default Sidebar;
+};
