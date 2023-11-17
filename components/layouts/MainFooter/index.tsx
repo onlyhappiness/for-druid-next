@@ -1,28 +1,34 @@
+import { cn } from "@/lib/utils";
 import { Home, Plus, Heart, Search, UserCircle } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const items = [
   {
+    key: "home",
     icon: <Home />,
     text: "Home",
     href: "/",
   },
   {
+    key: "search",
     icon: <Search />,
     text: "검색",
-    href: "/",
+    // href: "/",
   },
   {
+    key: "plus",
     icon: <Plus size={"30"} />,
     text: "",
-    href: "/",
+    // href: "/",
   },
   {
+    key: "heart",
     icon: <Heart />,
     text: "찜한 글",
     href: "/favorite",
   },
   {
+    key: "mypage",
     icon: <UserCircle />,
     text: "프로필",
     href: "/mypage",
@@ -31,45 +37,25 @@ const items = [
 
 export default () => {
   const router = useRouter();
+  const pathname = usePathname();
 
-  const iconStyle = `flex flex-col space-y-2 justify-center items-center cursor-pointer`;
+  const iconStyle = `flex flex-col justify-center items-center space-y-2 cursor-pointer `;
 
   return (
-    <footer className="flex justify-between items-center bg-[#98DDCA] text-white px-8 py-4">
-      {/* <div className={iconStyle}>
-        <Home />
-        <span className="text-sm">Home</span>
-      </div>
-
-      <div className={iconStyle}>
-        <Search />
-        <span className="text-sm">검색</span>
-      </div>
-
-      <div className={iconStyle}>
-        <Plus />
-      </div>
-      <div className={iconStyle}>
-        <Heart />
-        <span className="text-sm">찜한 글</span>
-      </div>
-      <div className={iconStyle}>
-        <UserCircle />
-        <span className="text-sm">프로필</span>
-      </div> */}
-      {items.map((item) => {
-        return (
-          <div
-            className={iconStyle}
-            onClick={() => {
-              router.push(`${item.href}`);
-            }}
-          >
-            <div>{item.icon}</div>
-            <span className="text-sm">{item.text}</span>
-          </div>
-        );
-      })}
+    <footer className="flex justify-between items-center px-8 py-3">
+      {items.map((item) => (
+        <div
+          key={item.key}
+          className={`${iconStyle} px-3
+            ${pathname === item.href ? `text-[#98DDCA]` : `text-[#707070]`} `}
+          onClick={() => {
+            router.push(`${item.href}`);
+          }}
+        >
+          <div>{item.icon}</div>
+          <span className="text-sm">{item.text}</span>
+        </div>
+      ))}
     </footer>
   );
 };

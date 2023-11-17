@@ -1,7 +1,7 @@
 "use client";
 
 const ClientPage = () => {
-  return <div>Home</div>;
+  return <div>Home lorem*100</div>;
 };
 
 export default ClientPage;
