@@ -13,13 +13,13 @@ const items = [
     key: "search",
     icon: <Search />,
     text: "검색",
-    // href: "/",
+    href: "/search",
   },
   {
     key: "plus",
     icon: <Plus size={"30"} />,
     text: "",
-    // href: "/",
+    href: "/post/add",
   },
   {
     key: "heart",
