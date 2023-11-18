@@ -12,7 +12,7 @@ function ClientLayout({ children }: { children: React.ReactNode }) {
       <div className="flex flex-col max-w-[520px] min-h-screen mx-auto bg-[#FFFFFF]">
         <Navbar />
 
-        <ScrollArea className="h-[calc(100vh-132px)]">
+        <ScrollArea className="h-[calc(100vh-132px)] shadow-md">
           <div className="px-6 py-3">{children}</div>
         </ScrollArea>
 

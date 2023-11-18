@@ -39,7 +39,7 @@ export default () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const iconStyle = `flex flex-col justify-center items-center space-y-2 cursor-pointer `;
+  const iconStyle = `flex flex-col justify-center items-center space-y-2 cursor-pointer hover:text-[#AEDB81]`;
 
   return (
     <footer className="flex justify-between items-center px-8 py-3">
@@ -47,7 +47,7 @@ export default () => {
         <div
           key={item.key}
           className={`${iconStyle} px-3
-            ${pathname === item.href ? `text-[#98DDCA]` : `text-[#707070]`} `}
+            ${pathname === item.href ? `text-[#3AB795]` : `text-[#707070]`} `}
           onClick={() => {
             router.push(`${item.href}`);
           }}
