@@ -5,7 +5,8 @@ import Providers from "./providers.client";
 import { cache } from "react";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import Hydrate from "./Hydrate.client";
-import ClientLayout from "./layout.client";
+
+import ClientLayout from "@/layout/main-layout";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,5 +1,12 @@
 import { cn } from "@/lib/utils";
-import { Home, Plus, Heart, Search, UserCircle } from "lucide-react";
+import {
+  Home,
+  Plus,
+  Heart,
+  Search,
+  UserCircle,
+  MessageSquare,
+} from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
 const items = [
@@ -17,8 +24,8 @@ const items = [
   },
   {
     key: "plus",
-    icon: <Plus size={"30"} />,
-    text: "",
+    icon: <MessageSquare />,
+    text: "커뮤니티",
     href: "/post/add",
   },
   {
@@ -53,7 +60,7 @@ export default () => {
           }}
         >
           <div>{item.icon}</div>
-          <span className="text-sm">{item.text}</span>
+          <span className="text-xs">{item.text}</span>
         </div>
       ))}
     </footer>
