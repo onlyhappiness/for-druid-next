@@ -1,6 +1,6 @@
 const PostCard = () => {
   return (
-    <div>
+    <div className="bg-white rounded-xl p-3">
       <div>이미지</div>
 
       <div>글</div>
@@ -15,3 +15,5 @@ const PostCard = () => {
     </div>
   );
 };
+
+export default PostCard;
