@@ -5,7 +5,6 @@ const useMyInfoQuery = () => {
   return useQuery({
     queryKey: ["my-info-query"],
     queryFn: loadMyInfo,
-    staleTime: Infinity,
   });
 };
 
