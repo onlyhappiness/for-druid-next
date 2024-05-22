@@ -1,5 +1,5 @@
 import { SkeletonCard } from "@/components/ui/skeleton";
-import { sleep } from "@/lib/utils";
+import { sleep } from "@/lib/func";
 
 const Add = async () => {
   await sleep(1000);

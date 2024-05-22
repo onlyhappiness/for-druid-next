@@ -3,10 +3,10 @@ import Header from "./components/Header";
 
 const Page = async () => {
   return (
-    <div className="overflow-y-auto">
+    <div className="">
       <Header />
 
-      <div className="my-3 p-3 mt-8">
+      <div className="my-3 p-3 mt-12">
         {[...new Array(5)].map((i) => {
           return <SkeletonCard key={i} className="mb-2" />;
         })}

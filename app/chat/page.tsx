@@ -1,8 +1,10 @@
-import { SkeletonCard } from "@/components/ui/skeleton";
-import { sleep } from "@/lib/utils";
+"use client";
 
-const Chat = async () => {
-  await sleep(200);
+import { SkeletonCard } from "@/components/ui/skeleton";
+import { useAuthGuard } from "@/hooks/useGuard";
+
+const Chat = () => {
+  useAuthGuard();
 
   return (
     <div className="p-3">

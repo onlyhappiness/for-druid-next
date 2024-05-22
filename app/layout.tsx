@@ -1,10 +1,17 @@
 import BottomTab from "@/components/BottomTab";
 import ReactQueryProvider from "@/components/provider/ReactQueryProvider";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+
+// import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+const pretendard = localFont({
+  src: "../public/fonts/PretendardVariable.ttf",
+  variable: "--pretendard",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Druid Diary",
@@ -18,14 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={pretendard.className}>
         <ReactQueryProvider>
-          <div className="flex justify-center items-center min-h-screen bg-gray-100">
+          <section className="flex justify-center items-center min-h-screen bg-gray-100">
             <div className="w-full min-w-sm max-w-lg min-h-screen bg-white pb-14">
               {children}
             </div>
             <BottomTab />
-          </div>
+          </section>
         </ReactQueryProvider>
       </body>
     </html>

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/func";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -10,13 +10,10 @@ export interface InputProps
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, icon, ...props }, ref) => {
     return (
-      <div className="relative flex items-center w-full">
+      <div className="relative flex items-center w-full px-3 rounded-md border border-input">
         <input
           type={type}
-          className={cn(
-            "flex h-10 w-full rounded-md border border-input px-3 py-2 text-sm",
-            className
-          )}
+          className={cn("flex h-12 w-full py-2 text-sm outline-0", className)}
           ref={ref}
           {...props}
         />

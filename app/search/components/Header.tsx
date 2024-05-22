@@ -1,17 +1,21 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
-import { size } from "@/constants";
-import { ChevronLeftIcon } from "lucide-react";
+import { ChevronLeft, SearchIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface HeaderProps {
   className?: string;
 }
 
 const Header = ({ className }: HeaderProps) => {
+  const { back } = useRouter();
+
   return (
     <div className="flex items-center gap-2">
-      <ChevronLeftIcon size={size.ICON} />
+      <ChevronLeft size={28} onClick={back} />
 
-      <Input className="outline-0" placeholder="" />
+      <Input placeholder="" icon={<SearchIcon />} />
     </div>
   );
 };
