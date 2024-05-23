@@ -12,10 +12,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { size } from "@/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { isEmpty } from "lodash";
 import { ChevronLeftIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-
 import { z } from "zod";
 
 const formSchema = z.object({
@@ -26,6 +26,8 @@ const formSchema = z.object({
 type Form = z.infer<typeof formSchema>;
 
 const Signin = () => {
+  // const supabase = createClient();
+
   const { back } = useRouter();
 
   const form = useForm<Form>({
@@ -42,7 +44,7 @@ const Signin = () => {
     formState: { isSubmitting, errors },
   } = form;
 
-  const onSubmit = (data: Form) => {
+  const onSubmit = async (data: Form) => {
     console.log("data: ", data);
   };
 
@@ -77,18 +79,27 @@ const Signin = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="비밀번호 입력" {...field} />
+                    <Input
+                      placeholder="비밀번호 입력"
+                      {...field}
+                      type="password"
+                    />
                   </FormControl>
-                  <FormMessage />
                 </FormItem>
               )}
             />
-          </form>
-        </Form>
 
-        <Button type="submit" form="login-form" className="mt-4">
-          로그인
-        </Button>
+            {!isEmpty(errors) && (
+              <FormMessage>
+                이메일 또는 비밀번호를 다시 확인해주세요.
+              </FormMessage>
+            )}
+          </form>
+
+          <Button type="submit" form="login-form" className="mt-4">
+            로그인
+          </Button>
+        </Form>
 
         <div className="border-y border-gray-100 my-4 py-4">
           <Button variant={"outline"}>회원가입</Button>

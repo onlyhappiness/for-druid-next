@@ -2,6 +2,10 @@ import { SkeletonCard } from "@/components/ui/skeleton";
 import Header from "./components/Header";
 
 const Page = async () => {
+  // const { data } = useGetFeedList();
+
+  // console.log("data:: ", data);
+
   return (
     <div className="">
       <Header />
