@@ -1,5 +1,5 @@
+import { getFeedList } from "@/services/apis/feed";
 import { useQuery } from "@tanstack/react-query";
-import { getFeedList } from "../apis/feed";
 
 const useGetFeedList = () => {
   return useQuery({

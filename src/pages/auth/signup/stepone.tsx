@@ -1,32 +1,30 @@
 import Header from "@/components/Header";
-import { Input } from "@/components/ui/input";
 import { SIZE } from "@/constants/number";
-import { ChevronLeftIcon, SearchIcon } from "lucide-react";
+import { ChevronLeftIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const Search = () => {
+const StepOne = () => {
   const navigate = useNavigate();
 
   return (
     <div>
       <Header
         type="default"
-        className="items-center gap-3"
         leftIcon={
           <ChevronLeftIcon
             className="cursor-pointer"
-            size={SIZE.large}
+            size={SIZE.icon}
             onClick={() => {
               navigate(-1);
             }}
           />
         }
-        rightIcon={
-          <Input placeholder="검색어" icon={<SearchIcon size={SIZE.large} />} />
-        }
+        title="로그인"
       />
+
+      <section className="pt-7 px-5"></section>
     </div>
   );
 };
 
-export default Search;
+export default StepOne;

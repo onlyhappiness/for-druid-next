@@ -18,7 +18,7 @@ function SkeletonCard({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <section className={cn("flex flex-col space-y-3", className)} {...props}>
-      <Skeleton className="h-[125px]  rounded-xl" />
+      <Skeleton className="h-[125px] rounded-xl" />
       <div className="space-y-2">
         <Skeleton className="h-4 " />
         <Skeleton className="h-4 " />
