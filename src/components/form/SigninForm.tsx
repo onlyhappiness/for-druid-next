@@ -41,7 +41,7 @@ const SigninForm = () => {
 
   const { mutate: postLogin, error: loginError, mutateAsync } = usePostLogin();
 
-  const onSubmit = async (data: Form) => {
+  const onSubmit = async (data) => {
     mutateAsync(data).then(() => {
       navigate(PATH.HOME);
     });
