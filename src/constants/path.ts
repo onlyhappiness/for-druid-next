@@ -1,15 +1,23 @@
 const PATH = {
   HOME: "/",
-  ADD: "/add",
+  FEED: {
+    ADD: "/feed/add",
+    NEW: "/feed/add/new",
+  },
   CHAT: "/chat",
   FAVORITE: "/favorite",
-  MY: "/my",
+  MY: {
+    PROFILE: "/my",
+    SETTINGS: "/my/settings",
+  },
   SEARCH: "/search",
 
   // auth
-  AUTH_SIGNIN: "/account/signin",
-  AUTH_SIGNUP: "/account/signup",
-  AUTH_SET_NAME: "/account/set-name",
+  AUTH: {
+    SIGNIN: "/account/signin",
+    SIGNUP: "/account/signup",
+    SET_NAME: "/account/set-name",
+  },
 };
 
 const ABOUT = [
@@ -34,4 +42,13 @@ const SERVICES = [
   },
 ];
 
-export { ABOUT, PATH, SERVICES };
+const SETTING_ALARM = [{ label: "알림", href: "" }];
+
+const SETTING_INFO = [
+  {
+    label: "이용 약관",
+    href: "",
+  },
+];
+
+export { ABOUT, PATH, SERVICES, SETTING_ALARM, SETTING_INFO };

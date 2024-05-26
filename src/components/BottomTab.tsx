@@ -31,9 +31,9 @@ const BottomTab = () => {
       },
       {
         icon: <PlusCircleIcon />,
-        href: PATH.ADD,
+        href: PATH.FEED.ADD,
         label: "등록",
-        isActive: pathname === PATH.ADD,
+        isActive: pathname === PATH.FEED.ADD,
       },
       {
         icon: <HeartIcon />,
@@ -43,9 +43,9 @@ const BottomTab = () => {
       },
       {
         icon: <CircleUserRoundIcon />,
-        href: PATH.MY,
+        href: PATH.MY.PROFILE,
         label: "마이",
-        isActive: pathname === PATH.MY,
+        isActive: pathname === PATH.MY.PROFILE,
       },
     ];
   }, [pathname]);

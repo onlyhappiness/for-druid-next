@@ -11,7 +11,7 @@ const useAuthGuard = () => {
 
   useEffect(() => {
     if (!userInfo) {
-      navigate(PATH.AUTH_SIGNIN, { replace: true });
+      navigate(PATH.AUTH.SIGNIN, { replace: true });
     }
 
     // 유저 이름을 설정하지 안한 경우

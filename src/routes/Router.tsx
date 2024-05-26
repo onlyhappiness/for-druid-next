@@ -15,10 +15,14 @@ const Loadable = (Component: ElementType) => (props) => {
 
 const Home = Loadable(lazy(() => import("@/pages/Home")));
 const Chat = Loadable(lazy(() => import("@/pages/chat/page")));
-const Add = Loadable(lazy(() => import("@/pages/add/page")));
+const Add = Loadable(lazy(() => import("@/pages/feed/add/page")));
 const Favorite = Loadable(lazy(() => import("@/pages/favorite/page")));
 const My = Loadable(lazy(() => import("@/pages/my/page")));
 const Search = Loadable(lazy(() => import("@/pages/search/page")));
+
+const New = Loadable(lazy(() => import("@/pages/feed/new/page")));
+
+const Settings = Loadable(lazy(() => import("@/pages/my/settings/page")));
 
 // auth
 const Signin = Loadable(lazy(() => import("@/pages/auth/signin/page")));
@@ -30,10 +34,31 @@ const basicRoutes = [
     children: [
       { path: PATH.HOME, element: <Home /> },
       { path: PATH.CHAT, element: <Chat /> },
-      { path: PATH.ADD, element: <Add /> },
+      {
+        path: PATH.FEED.ADD,
+        children: [
+          { path: PATH.FEED.ADD, element: <Add /> },
+          { path: PATH.FEED.NEW, element: <New /> },
+        ],
+      },
       { path: PATH.FAVORITE, element: <Favorite /> },
-      { path: PATH.MY, element: <My /> },
-      { path: PATH.SEARCH, element: <Search /> },
+      {
+        path: PATH.MY.PROFILE,
+        children: [
+          {
+            path: PATH.MY.PROFILE,
+            element: <My />,
+          },
+          {
+            path: PATH.MY.SETTINGS,
+            element: <Settings />,
+          },
+        ],
+      },
+      {
+        path: PATH.SEARCH,
+        element: <Search />,
+      },
     ],
   },
 ];
@@ -42,7 +67,7 @@ const authRoutes = [
   {
     path: "/account",
     element: <MainLayout />,
-    children: [{ path: PATH.AUTH_SIGNIN, element: <Signin /> }],
+    children: [{ path: PATH.AUTH.SIGNIN, element: <Signin /> }],
   },
 ];
 
@@ -50,7 +75,7 @@ const Router = () => {
   const { userInfo } = useUserInfoState();
   // console.log("userInfo: ", userInfo);
 
-  return useRoutes([...basicRoutes, ...authRoutes]);
+  return useRoutes(userInfo ? basicRoutes : [...basicRoutes, ...authRoutes]);
 };
 
 export default Router;

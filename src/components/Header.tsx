@@ -26,9 +26,17 @@ const Header = ({
         <section
           className={cn("flex justify-between w-full px-5 py-3", className)}
         >
-          {leftIcon ? leftIcon : <div />}
-          {title ? <span>{title}</span> : null}
-          {rightIcon ? rightIcon : <div />}
+          <div className="flex flex-1 justify-start">
+            {leftIcon ? leftIcon : <div className="" />}
+          </div>
+          <div className="flex flex-1 justify-center">
+            {title ? (
+              <span className="text-lg font-medium">{title}</span>
+            ) : null}
+          </div>
+          <div className="flex flex-1 justify-end">
+            {rightIcon ? rightIcon : <div className="" />}
+          </div>
         </section>
       );
     }

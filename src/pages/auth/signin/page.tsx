@@ -15,7 +15,7 @@ const Signin = () => {
         leftIcon={
           <ChevronLeftIcon
             className="cursor-pointer"
-            size={SIZE.icon}
+            size={SIZE.large}
             onClick={() => {
               navigate(-1);
             }}

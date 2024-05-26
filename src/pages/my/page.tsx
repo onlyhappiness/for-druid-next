@@ -1,3 +1,4 @@
+import Section from "@/components/Section";
 import { SIZE } from "@/constants/number";
 import { ABOUT, PATH, SERVICES } from "@/constants/path";
 import { useUserInfoState } from "@/data/userStore";
@@ -17,22 +18,6 @@ const My = () => {
     </div>
   );
 };
-
-const Section = ({ title, items }) => (
-  <section className="flex flex-col p-3 py-7">
-    <span className="font-semibold">{title}</span>
-    <div className="flex flex-col gap-3 pt-3">
-      {items.map((item) => (
-        <div
-          className="font-normal border-b py-3 cursor-pointer"
-          key={item.label}
-        >
-          {item.label}
-        </div>
-      ))}
-    </div>
-  </section>
-);
 
 /**
  * My 페이지에서 사용하는 header
@@ -56,7 +41,7 @@ const Header = () => {
                 <span
                   className="cursor-pointer"
                   onClick={() => {
-                    navigate(PATH.AUTH_SIGNIN);
+                    navigate(PATH.AUTH.SIGNIN);
                   }}
                 >
                   닉네임 설정
@@ -73,7 +58,7 @@ const Header = () => {
         <span
           className="text-white cursor-pointer"
           onClick={() => {
-            navigate(PATH.AUTH_SIGNIN);
+            navigate(PATH.AUTH.SIGNIN);
           }}
         >
           로그인 / 회원가입
@@ -90,6 +75,7 @@ const Header = () => {
           size={SIZE.icon}
           color="white"
           className="cursor-pointer"
+          onClick={() => navigate(PATH.MY.SETTINGS)}
         />
       </section>
       <section className="flex items-center gap-4">
