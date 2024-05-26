@@ -86,7 +86,11 @@ const Header = () => {
     <header className="flex flex-col gap-5 bg-slate-700 px-5 pt-3 pb-5">
       <section className="flex justify-between items-center">
         <span className="text-lg text-white font-semibold">마이페이지</span>
-        <SettingsIcon size={SIZE.icon} color="white" />
+        <SettingsIcon
+          size={SIZE.icon}
+          color="white"
+          className="cursor-pointer"
+        />
       </section>
       <section className="flex items-center gap-4">
         <div className="w-14 h-14 border bg-gray-100 rounded-full"></div>

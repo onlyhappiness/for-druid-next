@@ -1,5 +1,13 @@
 const Add = () => {
-  return <div>Add</div>;
+  return (
+    <div>
+      <Header />글 등록
+    </div>
+  );
+};
+
+const Header = () => {
+  return <header>Header</header>;
 };
 
 export default Add;
