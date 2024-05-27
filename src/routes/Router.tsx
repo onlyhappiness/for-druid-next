@@ -26,6 +26,8 @@ const Settings = Loadable(lazy(() => import("@/pages/my/settings/page")));
 
 // auth
 const Signin = Loadable(lazy(() => import("@/pages/auth/signin/page")));
+const StepOne = Loadable(lazy(() => import("@/pages/auth/signup/stepone")));
+const StepTwo = Loadable(lazy(() => import("@/pages/auth/signup/steptwo")));
 
 const basicRoutes = [
   {
@@ -67,7 +69,16 @@ const authRoutes = [
   {
     path: "/account",
     element: <MainLayout />,
-    children: [{ path: PATH.AUTH.SIGNIN, element: <Signin /> }],
+    children: [
+      { path: PATH.AUTH.SIGNIN, element: <Signin /> },
+      {
+        path: PATH.AUTH.SIGNUP,
+        children: [
+          { path: PATH.AUTH.STEP_ONE, element: <StepOne /> },
+          { path: PATH.AUTH.STEP_TWO, element: <StepTwo /> },
+        ],
+      },
+    ],
   },
 ];
 

@@ -6,7 +6,7 @@ const Bottom = ({
   className,
 }: {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }) => {
   return (
     <section className={cn("fixed bottom-0 z-50", className)}>

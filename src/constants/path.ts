@@ -16,6 +16,8 @@ const PATH = {
   AUTH: {
     SIGNIN: "/account/signin",
     SIGNUP: "/account/signup",
+    STEP_ONE: "/account/signup/step-one",
+    STEP_TWO: "/account/signup/step-two",
     SET_NAME: "/account/set-name",
   },
 };

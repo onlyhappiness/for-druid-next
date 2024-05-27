@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
 import SigninForm from "@/components/form/SigninForm";
 import { Button } from "@/components/ui/button";
-import { SIZE } from "@/constants/number";
-import { ChevronLeftIcon } from "lucide-react";
+import { PATH } from "@/constants/path";
 import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
@@ -10,19 +9,7 @@ const Signin = () => {
 
   return (
     <div>
-      <Header
-        type="default"
-        leftIcon={
-          <ChevronLeftIcon
-            className="cursor-pointer"
-            size={SIZE.large}
-            onClick={() => {
-              navigate(-1);
-            }}
-          />
-        }
-        title="로그인"
-      />
+      <Header type="default" back title="로그인" />
 
       <section className="pt-7 px-5">
         <SigninForm />
@@ -31,7 +18,7 @@ const Signin = () => {
           <Button
             variant={"outline"}
             onClick={() => {
-              console.log("회원가입 페이지로 이동");
+              navigate(PATH.AUTH.STEP_ONE);
             }}
           >
             회원가입

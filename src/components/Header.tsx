@@ -1,6 +1,7 @@
+import { SIZE } from "@/constants/number";
 import { PATH } from "@/constants/path";
 import { cn } from "@/lib/utils";
-import { SearchIcon } from "lucide-react";
+import { ChevronLeftIcon, SearchIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
@@ -9,6 +10,7 @@ interface HeaderProps {
   leftIcon?: React.ReactNode;
   title?: string;
   rightIcon?: React.ReactNode;
+  back?: boolean;
 }
 
 const Header = ({
@@ -17,8 +19,21 @@ const Header = ({
   leftIcon,
   title,
   rightIcon,
+  back,
 }: HeaderProps) => {
   const navigate = useNavigate();
+
+  const backIcon = () => {
+    return (
+      <ChevronLeftIcon
+        className="cursor-pointer"
+        size={SIZE.large}
+        onClick={() => {
+          navigate(-1);
+        }}
+      />
+    );
+  };
 
   const header = () => {
     if (type === "default") {
@@ -27,7 +42,8 @@ const Header = ({
           className={cn("flex justify-between w-full px-5 py-3", className)}
         >
           <div className="flex flex-1 justify-start">
-            {leftIcon ? leftIcon : <div className="" />}
+            {leftIcon && leftIcon}
+            {back && backIcon()}
           </div>
           <div className="flex flex-1 justify-center">
             {title ? (
