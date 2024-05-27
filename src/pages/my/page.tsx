@@ -3,7 +3,7 @@ import { SIZE } from "@/constants/number";
 import { ABOUT, PATH, SERVICES } from "@/constants/path";
 import { useUserInfoState } from "@/data/userStore";
 import usePostLogout from "@/services/queries/auth/usePostLogout";
-import { LogOutIcon, SettingsIcon } from "lucide-react";
+import { LogOutIcon, PencilLineIcon, SettingsIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const My = () => {
@@ -29,38 +29,33 @@ const Header = () => {
 
   const { mutate: postLogout, error } = usePostLogout();
 
+  const onClickSignin = () => {
+    navigate(PATH.AUTH.SIGNIN);
+  };
+
+  const onClickLogout = () => {
+    postLogout();
+  };
+
   const renderUserInfo = () => {
     if (userInfo) {
       return (
         <div className="flex flex-1 items-end justify-between text-white">
           <div className="flex flex-col gap-2">
-            <span className="font-semibold">
-              {userInfo.username ? (
-                userInfo.username
-              ) : (
-                <span
-                  className="cursor-pointer"
-                  onClick={() => {
-                    navigate(PATH.AUTH.SIGNIN);
-                  }}
-                >
-                  닉네임 설정
-                </span>
-              )}
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="font-semibold">
+                {userInfo.username ? userInfo.username : "닉네임 설정"}
+              </span>
+              <PencilLineIcon size={20} className="cursor-pointer" />
+            </div>
             <span>{userInfo.email}</span>
           </div>
-          <LogOutIcon onClick={() => postLogout()} />
+          <LogOutIcon className="cursor-pointer" onClick={onClickLogout} />
         </div>
       );
     } else {
       return (
-        <span
-          className="text-white cursor-pointer"
-          onClick={() => {
-            navigate(PATH.AUTH.SIGNIN);
-          }}
-        >
+        <span className="text-white cursor-pointer" onClick={onClickSignin}>
           로그인 / 회원가입
         </span>
       );

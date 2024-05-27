@@ -2,10 +2,18 @@ import Header from "@/components/Header";
 import SigninForm from "@/components/form/SigninForm";
 import { Button } from "@/components/ui/button";
 import { PATH } from "@/constants/path";
+import usePostKakaoLogin from "@/services/queries/auth/usePostKakaoLogin";
 import { useNavigate } from "react-router-dom";
+import KakaoIcon from "/assets/kakao.png";
 
 const Signin = () => {
   const navigate = useNavigate();
+
+  const { mutate: postKakaoLogin } = usePostKakaoLogin();
+
+  const onClickKakaoLogin = async () => {
+    await postKakaoLogin();
+  };
 
   return (
     <div>
@@ -25,8 +33,26 @@ const Signin = () => {
           </Button>
         </div>
 
-        <div className="flex justify-center ">
+        <div className="flex flex-col justify-center items-center gap-3">
           <span className="text-sm">SNS 계정으로 시작하기</span>
+          <Button
+            onClick={onClickKakaoLogin}
+            className="bg-[#FEE500] text-[#000000] hover:bg-[#FEE500]"
+            startIcon={
+              <img src={KakaoIcon} alt="kakao-icon" className="w-10 h-10" />
+            }
+          >
+            카카오 로그인
+          </Button>
+
+          {/* <Button
+            className="border bg-[#ffffff] text-[#000000] hover:bg-[#FFFFFF]"
+            startIcon={
+              <img src={GoogleIcon} alt="google-icon" className="w-10 h-10" />
+            }
+          >
+            구글 로그인
+          </Button> */}
         </div>
       </section>
     </div>

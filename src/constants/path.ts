@@ -3,6 +3,7 @@ const PATH = {
   FEED: {
     ADD: "/feed/add",
     NEW: "/feed/add/new",
+    DETAIL: "/feed/:id",
   },
   CHAT: "/chat",
   FAVORITE: "/favorite",

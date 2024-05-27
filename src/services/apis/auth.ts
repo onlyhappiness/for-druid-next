@@ -45,4 +45,14 @@ const postLogout = async () => {
   }
 };
 
-export { getUser, getUserInfo, postLogin, postLogout };
+const postKakaoLogin = async () => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "kakao",
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+};
+
+export { getUser, getUserInfo, postKakaoLogin, postLogin, postLogout };

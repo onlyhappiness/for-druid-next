@@ -15,12 +15,15 @@ const Loadable = (Component: ElementType) => (props) => {
 
 const Home = Loadable(lazy(() => import("@/pages/Home")));
 const Chat = Loadable(lazy(() => import("@/pages/chat/page")));
+
+// feed
 const Add = Loadable(lazy(() => import("@/pages/feed/add/page")));
+const New = Loadable(lazy(() => import("@/pages/feed/new/page")));
+const FeedDetail = Loadable(lazy(() => import("@/pages/feed/detail/page")));
+
 const Favorite = Loadable(lazy(() => import("@/pages/favorite/page")));
 const My = Loadable(lazy(() => import("@/pages/my/page")));
 const Search = Loadable(lazy(() => import("@/pages/search/page")));
-
-const New = Loadable(lazy(() => import("@/pages/feed/new/page")));
 
 const Settings = Loadable(lazy(() => import("@/pages/my/settings/page")));
 
@@ -43,24 +46,16 @@ const basicRoutes = [
           { path: PATH.FEED.NEW, element: <New /> },
         ],
       },
+      { path: PATH.FEED.DETAIL, element: <FeedDetail /> },
       { path: PATH.FAVORITE, element: <Favorite /> },
       {
         path: PATH.MY.PROFILE,
         children: [
-          {
-            path: PATH.MY.PROFILE,
-            element: <My />,
-          },
-          {
-            path: PATH.MY.SETTINGS,
-            element: <Settings />,
-          },
+          { path: PATH.MY.PROFILE, element: <My /> },
+          { path: PATH.MY.SETTINGS, element: <Settings /> },
         ],
       },
-      {
-        path: PATH.SEARCH,
-        element: <Search />,
-      },
+      { path: PATH.SEARCH, element: <Search /> },
     ],
   },
 ];

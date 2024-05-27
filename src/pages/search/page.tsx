@@ -9,6 +9,12 @@ const Search = () => {
   return (
     <div>
       <Header />
+
+      <section className="flex flex-col my-3 px-3 gap-10">
+        <span className="font-semibold">최근 검색어</span>
+
+        <span className="font-semibold">추천 검색어</span>
+      </section>
     </div>
   );
 };

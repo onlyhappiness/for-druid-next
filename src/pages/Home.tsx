@@ -5,11 +5,6 @@ import useGetFeedList from "@/services/queries/feed/useGetFeedList";
 
 const Home = () => {
   const { data, isLoading, isError } = useGetFeedList();
-  // const { userInfo } = useUserInfoState();
-
-  // console.log("userInfo::: ", userInfo);
-  // console.log("data:: ", data);
-  // console.log("isLoading:: ", isLoading);
 
   if (isLoading || isError) {
     <section className="my-3 px-3">
