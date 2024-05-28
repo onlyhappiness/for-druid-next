@@ -21,13 +21,13 @@ const Add = () => {
           </p>
         </div>
 
-        <div className="flex items-center justify-between bg-gray-100 rounded-2xl p-5 mt-8">
-          <div
-            className="flex items-center gap-3"
-            onClick={() => {
-              navigate(PATH.FEED.NEW);
-            }}
-          >
+        <div
+          className="flex items-center justify-between bg-gray-100 rounded-2xl p-5 mt-8 cursor-pointer"
+          onClick={() => {
+            navigate(PATH.FEED.NEW);
+          }}
+        >
+          <div className="flex items-center gap-3 ">
             {/* <Sparkles color="#1bbf83" /> */}
             <SproutIcon size={SIZE.large} color="#1bbf83" />
             <span className="font-semibold text-lg text-[#1bbf83]">

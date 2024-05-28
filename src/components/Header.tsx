@@ -41,7 +41,7 @@ const Header = ({
     if (type === "default") {
       return (
         <section
-          className={cn("flex justify-between w-full px-5 py-3", className)}
+          className={cn("flex justify-between w-full px-3 py-3", className)}
         >
           <div className="flex flex-1 justify-start">
             {leftIcon && leftIcon}
