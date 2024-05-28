@@ -29,7 +29,6 @@ const InputFile = ({ imageFiles, setImageFiles }) => {
 
   const onClickFile = async (e) => {
     const { files } = e.target;
-
     if (files) {
       uploadImage(files[0]).then((res) => {
         setImageFiles((prev: any) => [...prev, res.publicUrl]);
