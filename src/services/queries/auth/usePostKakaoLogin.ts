@@ -1,8 +1,10 @@
 import { postKakaoLogin } from "@/services/apis/auth";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 const usePostKakaoLogin = () => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   return useMutation({
     mutationFn: postKakaoLogin,

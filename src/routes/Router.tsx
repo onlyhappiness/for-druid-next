@@ -81,7 +81,53 @@ const Router = () => {
   const { userInfo } = useUserInfoState();
   // console.log("userInfo: ", userInfo);
 
-  return useRoutes(userInfo ? basicRoutes : [...basicRoutes, ...authRoutes]);
+  const routes = [
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        { path: PATH.HOME, element: <Home /> },
+        { path: PATH.CHAT, element: <Chat /> },
+        {
+          path: PATH.FEED.ADD,
+          children: [
+            { path: PATH.FEED.ADD, element: <Add /> },
+            { path: PATH.FEED.NEW, element: <New /> },
+          ],
+        },
+        { path: PATH.FEED.DETAIL, element: <FeedDetail /> },
+        { path: PATH.FAVORITE, element: <Favorite /> },
+        {
+          path: PATH.MY.PROFILE,
+          children: [
+            { path: PATH.MY.PROFILE, element: <My /> },
+            { path: PATH.MY.SETTINGS, element: <Settings /> },
+          ],
+        },
+        { path: PATH.SEARCH, element: <Search /> },
+      ],
+    },
+  ];
+
+  if (!userInfo) {
+    routes.push({
+      path: "/account",
+      element: <MainLayout />,
+      children: [
+        { path: PATH.AUTH.SIGNIN, element: <Signin /> },
+        {
+          path: PATH.AUTH.SIGNUP,
+          children: [
+            { path: PATH.AUTH.STEP_ONE, element: <StepOne /> },
+            { path: PATH.AUTH.STEP_TWO, element: <StepTwo /> },
+          ],
+        },
+      ],
+    });
+  }
+
+  // return useRoutes(userInfo ? basicRoutes : [...basicRoutes, ...authRoutes]);
+  return useRoutes(routes);
 };
 
 export default Router;

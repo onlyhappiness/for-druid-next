@@ -9,10 +9,12 @@ import KakaoIcon from "/assets/kakao.png";
 const Signin = () => {
   const navigate = useNavigate();
 
-  const { mutate: postKakaoLogin } = usePostKakaoLogin();
+  const { mutateAsync: postKakaoLogin } = usePostKakaoLogin();
 
   const onClickKakaoLogin = async () => {
-    await postKakaoLogin();
+    await postKakaoLogin().then((res) => {
+      navigate(PATH.HOME, { replace: true }); // replace를 사용하여 뒤로가기를 막음
+    });
   };
 
   return (

@@ -6,6 +6,9 @@ const Section = ({ title, items }) => (
         <div
           className="font-normal border-b py-3 cursor-pointer"
           key={item.label}
+          onClick={() => {
+            alert("웹뷰 테스트");
+          }}
         >
           {item.label}
         </div>
