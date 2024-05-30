@@ -5,6 +5,10 @@ import BottomTab from "./BottomTab";
 const MainLayout = () => {
   const { userInfo } = useGetUser();
 
+  const redirectUrl = window.location.origin;
+
+  console.log("redirectUrl", redirectUrl);
+
   return (
     <section className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full min-w-sm max-w-lg min-h-screen bg-white pb-14">
