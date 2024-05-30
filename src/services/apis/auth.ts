@@ -1,3 +1,4 @@
+import getURL from "@/lib/getURL";
 import { ISignin } from "@/types/auth";
 import supabase from "../supabase";
 
@@ -48,6 +49,9 @@ const postLogout = async () => {
 const postKakaoLogin = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "kakao",
+    options: {
+      redirectTo: getURL(),
+    },
   });
 
   if (error) {

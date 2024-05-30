@@ -8,6 +8,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { PATH } from "@/constants/path";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { isEmpty } from "lodash";
 import { useForm } from "react-hook-form";
@@ -69,7 +70,13 @@ const StepOne = () => {
       </section>
 
       <section className="p-8">
-        <Button type="submit" form="signup-step-one">
+        <Button
+          type="submit"
+          form="signup-step-one"
+          onClick={() => {
+            navigate(PATH.AUTH.STEP_TWO);
+          }}
+        >
           다음
         </Button>
       </section>

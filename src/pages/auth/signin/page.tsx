@@ -12,9 +12,7 @@ const Signin = () => {
   const { mutateAsync: postKakaoLogin } = usePostKakaoLogin();
 
   const onClickKakaoLogin = async () => {
-    await postKakaoLogin().then((res) => {
-      navigate(PATH.HOME, { replace: true }); // replace를 사용하여 뒤로가기를 막음
-    });
+    await postKakaoLogin();
   };
 
   return (
