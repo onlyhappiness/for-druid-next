@@ -1,4 +1,4 @@
-import useAuthGuard from "@/hooks/useAuthGuard";
+import { useAuthGuard } from "@/hooks/useGuard";
 
 const Favorite = () => {
   useAuthGuard();

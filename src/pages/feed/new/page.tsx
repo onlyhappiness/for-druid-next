@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import { InputFile } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import useAuthGuard from "@/hooks/useAuthGuard";
+import { useAuthGuard } from "@/hooks/useGuard";
 import { CircleXIcon } from "lucide-react";
 import { useState } from "react";
 

@@ -6,7 +6,6 @@ const MainLayout = () => {
   const { userInfo } = useGetUser();
 
   const redirectUrl = window.location.origin;
-
   console.log("redirectUrl", redirectUrl);
 
   return (

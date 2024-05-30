@@ -45,12 +45,13 @@ const postLogout = async () => {
   }
 };
 
+// 카카오 로그인
 const postKakaoLogin = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "kakao",
-    // options: {
-    //   redirectTo: getURL(),
-    // },
+    options: {
+      redirectTo: window.location.origin,
+    },
   });
 
   if (error) {

@@ -1,7 +1,9 @@
+import { SIZE } from "@/constants/number";
 import { cn } from "@/lib/utils";
 import usePostUploadImage from "@/services/queries/storage/usePostUploadImage";
-import { CameraIcon, Loader2Icon } from "lucide-react";
+import { CameraIcon, EyeIcon, EyeOffIcon, Loader2Icon } from "lucide-react";
 import * as React from "react";
+import { Button } from "./button";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -23,6 +25,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
+Input.displayName = "Input";
 
 const InputFile = ({ imageFiles, setImageFiles }) => {
   const { mutateAsync: uploadImage, isPending } = usePostUploadImage();
@@ -59,6 +62,39 @@ const InputFile = ({ imageFiles, setImageFiles }) => {
     </div>
   );
 };
-Input.displayName = "Input";
+InputFile.displayName = "Input.File";
 
-export { Input, InputFile };
+const InputPassword = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, ...props }, ref) => {
+    const [showPassword, setShowPassword] = React.useState(false);
+    const disabled =
+      props.value === "" || props.value === undefined || props.disabled;
+
+    return (
+      <div className="relative flex items-center w-full pl-3 rounded-md border border-input">
+        <input
+          type={showPassword ? "text" : "password"}
+          className={cn("flex h-12 w-full py-2 text-sm outline-0", className)}
+          ref={ref}
+          {...props}
+        />
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setShowPassword((prev) => !prev)}
+          disabled={disabled}
+        >
+          {showPassword && !disabled ? (
+            <EyeIcon size={SIZE.icon} color="#ced3d6" />
+          ) : (
+            <EyeOffIcon size={SIZE.icon} color="#ced3d6" />
+          )}
+        </Button>
+      </div>
+    );
+  }
+);
+InputPassword.displayName = "Input.Password";
+
+export { Input, InputFile, InputPassword };

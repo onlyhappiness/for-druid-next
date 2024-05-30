@@ -1,8 +1,9 @@
 import { PATH } from "@/constants/path";
 import { useUserInfoState } from "@/data/userStore";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
+// auth Guard
 const useAuthGuard = () => {
   const navigate = useNavigate();
   const { userInfo } = useUserInfoState();
@@ -21,4 +22,18 @@ const useAuthGuard = () => {
   }, [userInfo]);
 };
 
-export default useAuthGuard;
+const useStepGuard = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const email = location?.state?.email;
+
+  console.log("email: ", email);
+
+  useEffect(() => {
+    if (!email) {
+      navigate(PATH.HOME, { replace: true }); // replace를 사용하여 뒤로가기를 막음
+    }
+  }, [location]);
+};
+
+export { useAuthGuard, useStepGuard };

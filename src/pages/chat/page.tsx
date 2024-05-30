@@ -1,5 +1,5 @@
 import { SkeletonCard } from "@/components/ui/skeleton";
-import useAuthGuard from "@/hooks/useAuthGuard";
+import { useAuthGuard } from "@/hooks/useGuard";
 
 const Chat = () => {
   useAuthGuard();
