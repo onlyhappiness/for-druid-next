@@ -1,20 +1,36 @@
 import Header from "@/components/Header";
 import { InputFile } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useUserInfoState } from "@/data/userStore";
 import { useAuthGuard } from "@/hooks/useGuard";
+import usePostFeed from "@/services/queries/feed/usePostFeed";
 import { CircleXIcon } from "lucide-react";
 import { useState } from "react";
 
 const NewPage = () => {
   useAuthGuard();
 
+  const { userInfo } = useUserInfoState();
+
   const [imageFiles, setImageFiles] = useState([]);
+
+  const [content, setContent] = useState("");
 
   const onClickRemoveImage = (index) => {
     setImageFiles((prevImages) => prevImages.filter((_, i) => i !== index));
   };
 
-  console.log("imageFiles::: ", imageFiles);
+  const { mutate } = usePostFeed();
+
+  const onClickNewFeed = () => {
+    const req = {
+      content: content,
+      user_id: userInfo.id,
+      image_url: imageFiles.length > 0 ? imageFiles : null,
+    };
+
+    // mutate(req);
+  };
 
   return (
     <div>
@@ -23,7 +39,11 @@ const NewPage = () => {
         className="items-center border-b"
         title="다이어리 작성"
         back
-        rightIcon={<span className="text-lg cursor-pointer">완료</span>}
+        rightIcon={
+          <span className="text-lg cursor-pointer" onClick={onClickNewFeed}>
+            완료
+          </span>
+        }
       />
 
       <section className="flex flex-col px-3 pt-5 py-3">
@@ -53,6 +73,10 @@ const NewPage = () => {
           <Textarea
             className="px-2 min-h-[500px] border-none"
             placeholder="일기 내용을 입력해주세요."
+            value={content}
+            onChange={(e) => {
+              setContent(e.target.value);
+            }}
           />
         </section>
       </section>

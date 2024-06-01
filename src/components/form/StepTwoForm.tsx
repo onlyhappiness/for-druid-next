@@ -1,6 +1,8 @@
+import usePostSignup from "@/services/queries/auth/usePostSignup";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { isEmpty } from "lodash";
 import { useForm } from "react-hook-form";
+import { useLocation } from "react-router-dom";
 import { z } from "zod";
 import { Button } from "../ui/button";
 import {
@@ -8,6 +10,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "../ui/form";
 import { InputPassword } from "../ui/input";
@@ -31,6 +34,9 @@ const formSchema = z
 type Form = z.infer<typeof formSchema>;
 
 const StepTwoForm = () => {
+  const location = useLocation();
+  const email = location?.state?.email;
+
   const form = useForm<Form>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,8 +51,17 @@ const StepTwoForm = () => {
     formState: { errors },
   } = form;
 
+  const { mutate: postSignup } = usePostSignup();
+
   const onSubmit = async (data) => {
-    console.log("data::", data);
+    console.log("email:: ", email);
+    console.log("password::", data.password);
+
+    const req = {
+      email: email,
+      password: data.password,
+    };
+    // postSignup(req)
   };
 
   return (
@@ -62,6 +77,7 @@ const StepTwoForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>비밀번호 입력</FormLabel>
                 <FormControl>
                   <InputPassword
                     placeholder="비밀번호를 입력해주세요"
@@ -78,6 +94,7 @@ const StepTwoForm = () => {
             name="confirmPassword"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>비밀번호 확인</FormLabel>
                 <FormControl>
                   <InputPassword
                     placeholder="비밀번호를 다시 입력해주세요"

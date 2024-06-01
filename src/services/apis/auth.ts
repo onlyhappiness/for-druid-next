@@ -59,4 +59,20 @@ const postKakaoLogin = async () => {
   }
 };
 
-export { getUser, getUserInfo, postKakaoLogin, postLogin, postLogout };
+// 이메일 회원가입
+const postSignup = async (req) => {
+  const { data, error } = await supabase.auth.signUp(req);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+};
+
+export {
+  getUser,
+  getUserInfo,
+  postKakaoLogin,
+  postLogin,
+  postLogout,
+  postSignup,
+};

@@ -8,6 +8,7 @@ interface FeedCardProps {
 }
 
 const FeedCard = ({ className, size, data }: FeedCardProps) => {
+  console.log("user::: ", data);
   return (
     <div
       className={cn(
@@ -25,10 +26,10 @@ const FeedCard = ({ className, size, data }: FeedCardProps) => {
 
       <p className="break-all line-clamp-3 font-normal">
         {data?.content}
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus
+        {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus
         itaque excepturi fugit, eveniet distinctio magni est in veritatis. Atque
         molestiae expedita maxime soluta ipsum ratione ab sunt labore voluptates
-        distinctio.
+        distinctio. */}
       </p>
     </div>
   );

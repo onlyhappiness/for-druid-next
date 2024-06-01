@@ -10,6 +10,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
@@ -50,6 +51,7 @@ const SteponeForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>이메일 입력</FormLabel>
                 <FormControl>
                   <Input placeholder="이메일을 입력해주세요." {...field} />
                 </FormControl>

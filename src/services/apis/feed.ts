@@ -9,4 +9,15 @@ const getFeedList = async () => {
   return data;
 };
 
-export { getFeedList };
+// feed 생성
+const postFeed = async (req) => {
+  const { data, error } = await supabase.from("feed").insert(req).single();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+};
+
+export { getFeedList, postFeed };

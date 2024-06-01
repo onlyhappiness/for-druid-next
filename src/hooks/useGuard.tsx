@@ -8,7 +8,7 @@ const useAuthGuard = () => {
   const navigate = useNavigate();
   const { userInfo } = useUserInfoState();
 
-  console.log("저장된 유저 info::: ", userInfo);
+  // console.log("저장된 유저 info::: ", userInfo);
 
   useEffect(() => {
     if (!userInfo) {
@@ -27,13 +27,12 @@ const useStepGuard = () => {
   const location = useLocation();
   const email = location?.state?.email;
 
-  console.log("email: ", email);
-
   useEffect(() => {
     if (!email) {
+      console.log("이메일이 없어요");
       navigate(PATH.HOME, { replace: true }); // replace를 사용하여 뒤로가기를 막음
     }
-  }, [location]);
+  }, [location, navigate]);
 };
 
 export { useAuthGuard, useStepGuard };
