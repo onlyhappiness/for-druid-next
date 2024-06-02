@@ -13,7 +13,7 @@ const Loadable = (Component: ElementType) => (props) => {
   );
 };
 
-const Home = Loadable(lazy(() => import("@/pages/Home")));
+const Home = Loadable(lazy(() => import("@/pages/home/page")));
 const Chat = Loadable(lazy(() => import("@/pages/chat/page")));
 
 // feed
@@ -26,6 +26,10 @@ const My = Loadable(lazy(() => import("@/pages/my/page")));
 const Search = Loadable(lazy(() => import("@/pages/search/page")));
 
 const Settings = Loadable(lazy(() => import("@/pages/my/settings/page")));
+
+// support
+// const Notice = Loadable(lazy(() => import("@/pages/support/notice/page")));
+// const Faq = Loadable(lazy(() => import("@/pages/support/faq/page")));
 
 // auth
 const Signin = Loadable(lazy(() => import("@/pages/auth/signin/page")));

@@ -1,17 +1,29 @@
 const PATH = {
   HOME: "/",
+
   FEED: {
     ADD: "/feed/add",
     NEW: "/feed/add/new",
     DETAIL: "/feed/:id",
   },
+
   CHAT: "/chat",
+
   FAVORITE: "/favorite",
+
   MY: {
     PROFILE: "/my",
     SETTINGS: "/my/settings",
   },
+
   SEARCH: "/search",
+
+  // support
+  SUPPORT: {
+    INDEX: "/support",
+    NOTICE: "/support/notice",
+    FAQ: "/support/faq",
+  },
 
   // auth
   AUTH: {
@@ -30,14 +42,14 @@ const ABOUT = [
   },
   {
     label: "공지사항",
-    href: "",
+    href: "/support/notice",
   },
 ];
 
 const SERVICES = [
   {
     label: "자주 묻는 질문",
-    href: "",
+    href: "/support/faq",
   },
   {
     label: "고객센터",
@@ -50,6 +62,10 @@ const SETTING_ALARM = [{ label: "알림", href: "" }];
 const SETTING_INFO = [
   {
     label: "이용 약관",
+    href: "",
+  },
+  {
+    label: "개인정보처리방침",
     href: "",
   },
 ];
