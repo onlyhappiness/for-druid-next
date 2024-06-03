@@ -2,6 +2,7 @@ import { SIZE } from "@/constants/number";
 import { PATH } from "@/constants/path";
 import { ChevronRightIcon, SproutIcon, SquarePenIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Logo from "/logo.png";
 
 const Add = () => {
   const navigate = useNavigate();
@@ -44,7 +45,9 @@ const Add = () => {
 
 const Header = () => {
   return (
-    <header className="px-5 py-5">
+    <header className="flex items-center gap-2 px-3 py-5">
+      <img src={Logo} alt="logo" className="w-11 h-11" />
+
       <span className="font-medium text-xl tracking-wider">다이어리 작성</span>
     </header>
   );

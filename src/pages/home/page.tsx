@@ -1,9 +1,6 @@
 import FeedCard from "@/components/FeedCard";
 import Header from "@/components/Header";
-import { modals } from "@/components/modals/ModalProvider";
-import { Button } from "@/components/ui/button";
 import { SkeletonCard } from "@/components/ui/skeleton";
-import { useModalActions } from "@/data/modalStore";
 import useGetFeedList from "@/services/queries/feed/useGetFeedList";
 
 const Home = () => {
@@ -21,8 +18,8 @@ const Home = () => {
     <div>
       <Header type="home" />
 
+      <Banner />
       <section className="my-3 px-3">
-        <Banner />
         {data?.map((feed) => {
           return <FeedCard data={feed} key={feed.id} />;
         })}
@@ -32,19 +29,15 @@ const Home = () => {
 };
 
 const Banner = () => {
-  const { openModal } = useModalActions();
-
-  const onClickModalTest = () => {
-    openModal(modals.confirm, {
-      title: "modal 테스트",
-      desc: "modal 테스트",
-      onConfirm: () => {
-        alert("modal test");
-      },
-    });
-  };
-
-  return <Button onClick={onClickModalTest}>modal 버튼</Button>;
+  return (
+    <div className="flex flex-col justify-end bg-gray-100 h-64">
+      <div className="px-3 py-5">
+        <span className="tracking-wide">
+          식물을 키우는 사람들을 위한 커뮤니티
+        </span>
+      </div>
+    </div>
+  );
 };
 
 export default Home;

@@ -3,7 +3,12 @@ import { SIZE } from "@/constants/number";
 import { ABOUT, PATH, SERVICES } from "@/constants/path";
 import { useUserInfoState } from "@/data/userStore";
 import usePostLogout from "@/services/queries/auth/usePostLogout";
-import { LogOutIcon, PencilLineIcon, SettingsIcon } from "lucide-react";
+import {
+  LogOutIcon,
+  PencilLineIcon,
+  SettingsIcon,
+  UserRoundIcon,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const My = () => {
@@ -63,7 +68,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex flex-col gap-5 bg-slate-700 px-5 pt-3 pb-5">
+    <header className="flex flex-col gap-5 bg-[#1bbf83] px-5 pt-3 pb-5">
       <section className="flex justify-between items-center">
         <span className="text-lg text-white font-semibold">마이페이지</span>
         <SettingsIcon
@@ -74,7 +79,16 @@ const Header = () => {
         />
       </section>
       <section className="flex items-center gap-4">
-        <div className="w-14 h-14 border bg-gray-100 rounded-full"></div>
+        <div
+          className="flex justify-center items-center w-14 h-14 bg-gray-100 rounded-full"
+          style={{
+            backgroundImage: `url(${userInfo?.avatar_url})`,
+            backgroundSize: "cover",
+          }}
+        >
+          {!userInfo?.avatar_url && <UserRoundIcon size={SIZE.large} />}
+        </div>
+
         <div className="flex-1">{renderUserInfo()}</div>
       </section>
     </header>
