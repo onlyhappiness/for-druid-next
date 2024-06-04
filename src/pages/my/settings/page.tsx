@@ -10,8 +10,8 @@ const SetttingPage = () => {
     <div>
       <Header type="default" back title="설정" />
 
-      <Section title={"알림"} items={SETTING_ALARM} />
-      <Section title={"정보"} items={SETTING_INFO} />
+      <Section type="SETTING" title={"알림"} items={SETTING_ALARM} />
+      <Section type="SETTING" title={"정보"} items={SETTING_INFO} />
     </div>
   );
 };
