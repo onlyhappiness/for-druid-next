@@ -1,4 +1,5 @@
 import { useModalActions, useModalState } from "@/data/modalStore";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ConfirmModal from "./ConfirmModal";
 
@@ -17,6 +18,11 @@ const ModalProvider = () => {
   };
 
   console.log("modals:: ", modals);
+
+  useEffect(() => {
+    if (!modals.length) return;
+    resetModal();
+  }, [pathname]);
 
   return (
     <>

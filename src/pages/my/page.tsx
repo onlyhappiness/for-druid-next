@@ -1,4 +1,4 @@
-import Section from "@/components/Section";
+import CustomSection from "@/components/Section";
 import { SIZE } from "@/constants/number";
 import { ABOUT, PATH, SERVICES } from "@/constants/path";
 import { useUserInfoState } from "@/data/userStore";
@@ -18,8 +18,8 @@ const My = () => {
 
       <div className="h-2 bg-gray-100" />
 
-      <Section title={"ABOUT"} items={ABOUT} />
-      <Section title={"고객센터"} items={SERVICES} />
+      <CustomSection type={"SETTING"} title={"ABOUT"} items={ABOUT} />
+      <CustomSection type={"SETTING"} title={"고객센터"} items={SERVICES} />
     </div>
   );
 };

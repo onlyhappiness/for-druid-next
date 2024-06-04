@@ -1,9 +1,9 @@
-import { postFeed } from "@/services/apis/feed";
+import { postCommunity } from "@/services/apis/community";
 import { useMutation } from "@tanstack/react-query";
 
-const usePostFeed = () => {
+const usePostCommunity = () => {
   return useMutation({
-    mutationFn: postFeed,
+    mutationFn: postCommunity,
     onSuccess: (res) => {
       console.log("res: ", res);
     },
@@ -13,4 +13,4 @@ const usePostFeed = () => {
   });
 };
 
-export default usePostFeed;
+export default usePostCommunity;

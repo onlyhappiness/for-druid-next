@@ -64,23 +64,6 @@ const basicRoutes = [
   },
 ];
 
-const authRoutes = [
-  {
-    path: "/account",
-    element: <MainLayout />,
-    children: [
-      { path: PATH.AUTH.SIGNIN, element: <Signin /> },
-      {
-        path: PATH.AUTH.SIGNUP,
-        children: [
-          { path: PATH.AUTH.STEP_ONE, element: <StepOne /> },
-          { path: PATH.AUTH.STEP_TWO, element: <StepTwo /> },
-        ],
-      },
-    ],
-  },
-];
-
 const Router = () => {
   const { userInfo } = useUserInfoState();
   // console.log("userInfo: ", userInfo);

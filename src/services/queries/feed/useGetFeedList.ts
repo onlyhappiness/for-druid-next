@@ -1,11 +1,11 @@
-import { getFeedList } from "@/services/apis/feed";
+import { getCommunityList } from "@/services/apis/community";
 import { useQuery } from "@tanstack/react-query";
 
-const useGetFeedList = () => {
+const useGetCommunityList = () => {
   return useQuery({
-    queryKey: ["FEED"],
-    queryFn: () => getFeedList(),
+    queryKey: ["Community"],
+    queryFn: () => getCommunityList(),
   });
 };
 
-export default useGetFeedList;
+export default useGetCommunityList;
