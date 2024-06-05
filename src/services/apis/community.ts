@@ -1,6 +1,6 @@
 import supabase from "../supabase";
 
-// 모든 feed 가져오기
+// 모든 커뮤니티 가져오기
 const getCommunityList = async () => {
   const { data } = await supabase
     .from("community")
@@ -11,7 +11,7 @@ const getCommunityList = async () => {
   return data;
 };
 
-// feed 생성
+// 커뮤니티 생성
 const postCommunity = async (req) => {
   const { data, error } = await supabase.from("community").insert(req).single();
 

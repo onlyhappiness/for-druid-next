@@ -11,6 +11,8 @@ const PATH = {
 
   FAVORITE: "/favorite",
 
+  EXPLORE: "/explore",
+
   MY: {
     PROFILE: "/my",
     SETTINGS: "/my/settings",

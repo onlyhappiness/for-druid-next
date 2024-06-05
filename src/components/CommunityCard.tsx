@@ -27,7 +27,13 @@ const CommunityCard = ({ className, data }: CommunityCardProps) => {
         ) : null}
       </div>
 
-      <p className="break-all line-clamp-3 text-sm">{data?.content}</p>
+      <p
+        className={`break-all text-sm ${
+          data?.image_url ? "line-clamp-3" : "line-clamp-[9]"
+        }`}
+      >
+        {data?.content}
+      </p>
     </div>
   );
 };

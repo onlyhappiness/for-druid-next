@@ -1,8 +1,8 @@
 import { PATH } from "@/constants/path";
 import { cn } from "@/lib/utils";
 import {
+  BookOpenIcon,
   CircleUserRoundIcon,
-  HeartIcon,
   HomeIcon,
   MessageCircleIcon,
   PlusCircleIcon,
@@ -36,11 +36,17 @@ const BottomTab = () => {
         isActive: pathname === PATH.FEED.ADD,
       },
       {
-        icon: <HeartIcon />,
-        href: PATH.FAVORITE,
-        label: "위시",
-        isActive: pathname === PATH.FAVORITE,
+        icon: <BookOpenIcon />,
+        href: PATH.EXPLORE,
+        label: "다이어리",
+        isActive: pathname === PATH.EXPLORE,
       },
+      // {
+      //   icon: <HeartIcon />,
+      //   href: PATH.FAVORITE,
+      //   label: "위시",
+      //   isActive: pathname === PATH.FAVORITE,
+      // },
       {
         icon: <CircleUserRoundIcon />,
         href: PATH.MY.PROFILE,

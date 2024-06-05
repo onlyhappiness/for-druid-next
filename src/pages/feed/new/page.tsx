@@ -3,7 +3,7 @@ import { InputFile } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useUserInfoState } from "@/data/userStore";
 import { useAuthGuard } from "@/hooks/useGuard";
-import usePostFeed from "@/services/queries/feed/usePostFeed";
+import usePostCommunity from "@/services/queries/community/usePostCommunity";
 import { CircleXIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ const NewPage = () => {
     setImageFiles((prevImages) => prevImages.filter((_, i) => i !== index));
   };
 
-  const { mutate } = usePostFeed();
+  const { mutate } = usePostCommunity();
 
   const onClickNewFeed = () => {
     const req = {

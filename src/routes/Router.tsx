@@ -22,6 +22,9 @@ const New = Loadable(lazy(() => import("@/pages/feed/new/page")));
 const FeedDetail = Loadable(lazy(() => import("@/pages/feed/detail/page")));
 
 const Favorite = Loadable(lazy(() => import("@/pages/favorite/page")));
+
+const Explore = Loadable(lazy(() => import("@/pages/explore/page")));
+
 const My = Loadable(lazy(() => import("@/pages/my/page")));
 const Search = Loadable(lazy(() => import("@/pages/search/page")));
 
@@ -32,37 +35,9 @@ const Settings = Loadable(lazy(() => import("@/pages/my/settings/page")));
 // const Faq = Loadable(lazy(() => import("@/pages/support/faq/page")));
 
 // auth
-const Signin = Loadable(lazy(() => import("@/pages/auth/signin/page")));
+const Signin = Loadable(lazy(() => import("@/pages/auth/login/page")));
 const StepOne = Loadable(lazy(() => import("@/pages/auth/signup/stepone")));
 const StepTwo = Loadable(lazy(() => import("@/pages/auth/signup/steptwo")));
-
-const basicRoutes = [
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      { path: PATH.HOME, element: <Home /> },
-      { path: PATH.CHAT, element: <Chat /> },
-      {
-        path: PATH.FEED.ADD,
-        children: [
-          { path: PATH.FEED.ADD, element: <Add /> },
-          { path: PATH.FEED.NEW, element: <New /> },
-        ],
-      },
-      { path: PATH.FEED.DETAIL, element: <FeedDetail /> },
-      { path: PATH.FAVORITE, element: <Favorite /> },
-      {
-        path: PATH.MY.PROFILE,
-        children: [
-          { path: PATH.MY.PROFILE, element: <My /> },
-          { path: PATH.MY.SETTINGS, element: <Settings /> },
-        ],
-      },
-      { path: PATH.SEARCH, element: <Search /> },
-    ],
-  },
-];
 
 const Router = () => {
   const { userInfo } = useUserInfoState();
@@ -82,8 +57,8 @@ const Router = () => {
             { path: PATH.FEED.NEW, element: <New /> },
           ],
         },
+        { path: PATH.EXPLORE, element: <Explore /> },
         { path: PATH.FEED.DETAIL, element: <FeedDetail /> },
-        { path: PATH.FAVORITE, element: <Favorite /> },
         {
           path: PATH.MY.PROFILE,
           children: [
@@ -92,6 +67,7 @@ const Router = () => {
           ],
         },
         { path: PATH.SEARCH, element: <Search /> },
+        // { path: PATH.FAVORITE, element: <Favorite /> },
       ],
     },
   ];

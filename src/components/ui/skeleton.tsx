@@ -27,4 +27,19 @@ function SkeletonCard({
   );
 }
 
-export { Skeleton, SkeletonCard };
+function SkeletonScroll({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className="flex space-x-4 overflow-x-scroll no-scrollbar">
+      {[...new Array(3)].map((c, i) => (
+        <div key={i} className="">
+          <SkeletonCard />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export { Skeleton, SkeletonCard, SkeletonScroll };

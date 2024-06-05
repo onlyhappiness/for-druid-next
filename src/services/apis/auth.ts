@@ -50,7 +50,11 @@ const postKakaoLogin = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "kakao",
     options: {
-      redirectTo: window.location.origin,
+      redirectTo: import.meta.env.VITE_PUBLIC_SITE_URL,
+      queryParams: {
+        access_type: "offline",
+        prompt: "consent",
+      },
     },
   });
 
